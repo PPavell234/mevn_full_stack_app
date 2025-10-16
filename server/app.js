@@ -24,4 +24,9 @@ mongoose.connect(process.env.DB_URL,{
 }).then(()=> console.log("Connected to the database!"))
 .catch((err)=>console.log(err));
 
+//rounter prefix
+app.use("/api/post",require("./routes/routes"));
+
+//start server
+
 app.listen(port, ()=> console.log('server runnign at http://localhost:${port}'));
