@@ -1,6 +1,7 @@
 const Post = require("../models/posts");
 
 module.exports = class API {
+  // получить все посты
   static async fetchAllPost(req, res) {
     try {
       const posts = await Post.find();
@@ -10,32 +11,31 @@ module.exports = class API {
     }
   }
 
-  //create a post
-
+  // создать пост
   static async createPost(req, res) {
-    const post = req.body;
-    const imagename = req.file.filename;
-    post.image = imagename;
     try {
-      await Post.create(post);
-      res.status(201).json({ message: "Post create successfully!" });
+      const post = req.body;
+      const imagename = req.file ? req.file.filename : null;
+      post.image = imagename;
+
+      const createdPost = await Post.create(post);
+      res.status(201).json(createdPost);
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
   }
 
+  // обновить пост
   static async updatePost(req, res) {
-    res.send("create updatePost");
+    res.send("update Post");
   }
 
-  static async createPost(req, res) {
-    res.send("create Post");
-  }
-
+  // удалить пост
   static async deletePost(req, res) {
     res.send("delete Post");
   }
 
+  // получить пост по ID
   static async fetchPostByID(req, res) {
     res.send("fetch Post By Id");
   }
