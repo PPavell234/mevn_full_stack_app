@@ -17,7 +17,7 @@ let upload = multer({
 }).single("image");
 
 router.get("/", API.fetchAllPost);
-router.get("/:id", API.fetchAllPost);
+router.get("/:id", API.fetchPostByID);
 router.post("/", upload, API.createPost);
 router.patch("/:id", API.updatePost);
 router.delete("/:id", API.deletePost);
