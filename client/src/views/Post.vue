@@ -1,6 +1,6 @@
 <template>
     <v-conatiner>
-        <v-row>
+        <v-row no-gutters>
             <v-col sm="10" class="pa-4 mx-auto">
                 <v-card class="pa-2">
                     <v-img :src="`http://localhost:5000/uploads/${post.image}`"></v-img>
@@ -10,8 +10,8 @@
                                 <v-btn small outline color="primary">{{ post.category }}</v-btn>
                             </v-col>
                             <v-col sm="10" class="d-flex justyfy-end">
-                                <v-btn color="success">Eidt</v-btn>
-                                <v-btn color="red">Delete</v-btn>
+                                <v-btn color="success" text>Eidt</v-btn>
+                                <v-btn color="red" text>Delete</v-btn>
 
                             </v-col>
                         </v-row>
