@@ -28,7 +28,7 @@ export default class API {
   }
 
   // Удалить пост по ID
-  static async deletePostByID(id) {
+  static async deletePost(id) {
     const res = await axios.delete(`${url}/${id}`);
     return res.data;
   }
