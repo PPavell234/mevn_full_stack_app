@@ -10,7 +10,11 @@
                                 <v-btn small outline color="primary">{{ post.category }}</v-btn>
                             </v-col>
                             <v-col sm="10" class="d-flex justyfy-end">
-                                <v-btn color="success" text>Eidt</v-btn>
+                                <v-btn color="success" text :to="{
+                                    name: 'edit-post', params: {
+                                        id: post._id
+                                    }
+                                }">Eidt</v-btn>
                                 <v-btn color="red" text>Delete</v-btn>
 
                             </v-col>
