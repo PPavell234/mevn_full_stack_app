@@ -28,6 +28,7 @@
             :key="i"
             :class="{ 'active-item': selected === item.text }"
             @click="selectItem(item.text)"
+            :to="item.link"
             link
           >
             <v-list-item-icon>
@@ -48,6 +49,11 @@
       </v-card>
     </v-navigation-drawer>
 
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+
     
   </v-app>
 </template>
@@ -56,12 +62,12 @@
 export default {
   name: 'App',
   data: () => ({
-    drawer: true,
+    drawer: null,
     selected: 'Real-Time',
     items: [
-      { text: 'Real-Time', icon: 'mdi-clock' },
-      { text: 'Audience', icon: 'mdi-account' },
-      { text: 'Conversions', icon: 'mdi-flag' },
+      { text: 'Home', icon: 'mdi-home',link:"/" },
+      { text: 'Add Post', icon: 'mdi-note-plus',link:"/add-post" },
+      { text: 'About', icon: 'mdi-help',link:"/about" },
     ],
   }),
   methods: {
