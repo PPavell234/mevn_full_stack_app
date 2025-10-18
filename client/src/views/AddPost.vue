@@ -6,20 +6,20 @@
                     <v-card-title>Add New Post</v-card-title>
                     <v-divider></v-divider>
 
-                    <v-form ref="form" class="pa-5" enctype="multipart/form-data">
-                        <v-text-field label="Title" prepend-icon="mdi-note" :rules="rules"
-                            v-model="title"></v-text-field>
+                    <v-form ref="form" @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
+                        <v-text-field label="Title" v-model="post.title" prepend-icon="mdi-note"
+                            :rules="rules"></v-text-field>
 
-                        <v-text-field label="Category" prepend-icon="mdi-view-list" :rules="rules"
-                            v-model="category"></v-text-field>
+                        <v-text-field label="Category" v-model="post.category" prepend-icon="mdi-view-list"
+                            :rules="rules"></v-text-field>
 
-                        <v-textarea label="Content" prepend-icon="mdi-note-plus" :rules="rules"
-                            v-model="content"></v-textarea>
+                        <v-textarea label="Content" v-model="post.content" prepend-icon="mdi-note-plus"
+                            :rules="rules"></v-textarea>
 
-                        <v-file-input :rules="rules" accept="image/*" show-size counter label="Select Image"
-                            v-model="image"></v-file-input>
+                        <v-file-input label="Select Image" v-model="post.image" :rules="rules" accept="image/*"
+                            show-size counter @change="selectFile"></v-file-input>
 
-                        <v-btn type="submit" class="mt-3" color="primary" @click.prevent="submitForm">
+                        <v-btn type="submit" class="mt-3" color="primary">
                             Add Post
                         </v-btn>
                     </v-form>
@@ -30,36 +30,50 @@
 </template>
 
 <script>
+import API from '../api'
+
 export default {
     data() {
         return {
-            title: '',
-            category: '',
-            content: '',
-            image: null,
+            post: {
+                title: '',
+                category: '',
+                content: '',
+                image: null,
+            },
             rules: [
-                (value) => !!value || 'This field is required', // ✅ исправлено
+                (value) => !!value || 'This field is required',
             ],
         }
     },
     methods: {
-        submitForm() {
-            // Проверяем валидацию формы
+        selectFile(file) {
+            this.post.image = file
+        },
+
+        async submitForm() {
             const form = this.$refs.form
-            if (form.validate()) {
-                // Создаём FormData для отправки на сервер
-                const formData = new FormData()
-                formData.append('title', this.title)
-                formData.append('category', this.category)
-                formData.append('content', this.content)
-                formData.append('image', this.image)
 
-                console.log('✅ Form ready to send:', [...formData.entries()])
-
-                // Здесь можно отправить форму на сервер через axios
-                // axios.post('http://localhost:5000/api/post', formData)
-            } else {
+            if (!form.validate()) {
                 console.warn('⚠️ Form validation failed')
+                return
+            }
+
+            // ✅ Создаём FormData
+            const formData = new FormData()
+            formData.append('title', this.post.title)
+            formData.append('category', this.post.category)
+            formData.append('content', this.post.content)
+            formData.append('image', this.post.image)
+
+            console.log('✅ Form ready to send:', [...formData.entries()])
+
+            try {
+                const response = await API.addPost(formData)
+                console.log('✅ Post added:', response)
+                this.$router.push({ name: 'home', params: { message: response.message } })
+            } catch (error) {
+                console.error('❌ Error while adding post:', error)
             }
         },
     },
