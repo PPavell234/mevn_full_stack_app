@@ -16,9 +16,11 @@
                         <v-textarea label="Content" v-model="post.content" prepend-icon="mdi-note-plus"
                             :rules="rules"></v-textarea>
 
-                        <v-file-input label="Select Image" v-model="post.image" accept="image/*" show-size counter
-                            @change="selectFile"></v-file-input>
-                        <v-img v-if="post.image" :src="getImageUrl(post.image)" width="120" cover></v-img>
+                        <v-file-input label="Select Image" v-model="post.image" accept="image/*" show-size
+                            counter></v-file-input>
+
+                        <v-img v-if="post.image && typeof post.image === 'string'" :src="getImageUrl(post.image)"
+                            width="120" cover></v-img>
 
                         <v-btn type="submit" class="mt-3" color="success">
                             Update Post
@@ -41,36 +43,37 @@ export default {
                 category: '',
                 content: '',
                 image: null,
+                old_image: null,
             },
-            rules: [
-                (value) => !!value || 'This field is required',
-            ],
+            rules: [(value) => !!value || 'This field is required'],
         }
     },
 
-    async created() {
-        const response = await API.getPostByID(this.$route.params.id);
-        this.post = response;
+    created() {
+        this.fetchPost()
     },
 
-
     methods: {
-        selectFile(file) {
-            this.post.image = file
+        async fetchPost() {
+            try {
+                const response = await API.getPostByID(this.$route.params.id)
+                this.post = response.data || response
+                this.post.old_image = this.post.image // сохраняем старое имя картинки
+            } catch (err) {
+                console.error('❌ Error fetching post:', err)
+            }
         },
 
         getImageUrl(imagePath) {
-            // Если сервер возвращает просто имя файла
             if (!imagePath) return ''
-            if (imagePath.startsWith('http')) return imagePath // если уже полный путь
+            if (imagePath.startsWith('http')) return imagePath
             return `http://localhost:5000/uploads/${imagePath}`
         },
 
-        async submitForm() {
+        async updateForm() {
             const form = this.$refs.form
-
             if (!form.validate()) {
-                console.warn('⚠️ Form validation failed')
+                console.warn('⚠️ Validation failed')
                 return
             }
 
@@ -78,14 +81,19 @@ export default {
             formData.append('title', this.post.title)
             formData.append('category', this.post.category)
             formData.append('content', this.post.content)
-            formData.append('image', this.post.image)
+            formData.append('old_image', this.post.old_image)
+
+            // если пользователь выбрал новое изображение
+            if (this.post.image instanceof File) {
+                formData.append('image', this.post.image)
+            }
 
             try {
-                const response = await API.addPost(formData)
-                console.log('✅ Post added:', response)
+                const response = await API.updatePost(this.$route.params.id, formData)
+                console.log('✅ Post updated:', response)
                 this.$router.push({ name: 'home', params: { message: response.message } })
             } catch (error) {
-                console.error('❌ Error while adding post:', error)
+                console.error('❌ Error updating post:', error)
             }
         },
     },
