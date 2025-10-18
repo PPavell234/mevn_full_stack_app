@@ -2,15 +2,9 @@
   <div>
     <h1>Home Page</h1>
     <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          sm="4"
-          class="pa-3"
-          v-for="post in posts"
-          :key="post._id"
-        >
-          <v-card class="pa-1">
+      <v-row no-gutters>
+        <v-col cols="12" sm="4" class="pa-3" v-for="post in posts" :key="post._id">
+          <v-card class="pa-1" :to="{ name: 'post', params: { id: post._id } }">
             <!-- исправлено :src -->
             <v-img height="250" :src="`http://localhost:5000/${post.image}`"></v-img>
 
