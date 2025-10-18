@@ -3,7 +3,7 @@
         <v-row>
             <v-col sm="10" class="pa-4 mx-auto">
                 <v-card class="pa-2">
-                    <v-img :src="`http://localhost:5000/${post.image}`"></v-img>
+                    <v-img :src="`http://localhost:5000/uploads/${post.image}`"></v-img>
                     <v-card-action class="pb-0">
                         <v-row class="mt-1 mx-1">
                             <v-col sm="2">

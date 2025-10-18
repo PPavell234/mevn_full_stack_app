@@ -5,8 +5,8 @@
       <v-row no-gutters>
         <v-col cols="12" sm="4" class="pa-3" v-for="post in posts" :key="post._id">
           <v-card class="pa-1" :to="{ name: 'post', params: { id: post._id } }">
-            <!-- исправлено :src -->
-            <v-img height="250" :src="`http://localhost:5000/${post.image}`"></v-img>
+
+            <v-img :src="`http://localhost:5000/uploads/${post.image}`"></v-img>
 
             <v-btn class="ml-4 mt-3" small outlined color="indigo">
               {{ post.category }}
