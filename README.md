@@ -137,16 +137,20 @@ npm run serve
 Проект подключается к базе данных MongoDB через MongoDB Compass.
 Используется локальная база данных по адресу:
 
-```DB_URL = mongodb://localhost:27017/mevn_full_stack
-PORT = 5000```
+```bash
+DB_URL = mongodb://localhost:27017/mevn_full_stack
+PORT = 5000
+```
 
 
 Вы можете открыть MongoDB Compass, нажать "New Connection", и вставить строку подключения:
 
-mongodb://localhost:27017/mevn_full_stack
+**mongodb://localhost:27017/mevn_full_stack**
 
 
 После запуска сервера вы сможете увидеть коллекции, создаваемые приложением в MongoDB.
+
+---
 
 ## Features
 
