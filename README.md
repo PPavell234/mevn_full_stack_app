@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/images/logo/mevn.png" alt="MEVN App Logo" width="200" height="auto" />
+  
   <h1>MEVN Full Stack App</h1>
   <p>Full-stack web application built with MongoDB, Express, Vue.js, and Node.js 🚀</p>
 
