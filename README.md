@@ -2,7 +2,7 @@
 
 Перейдите в папку server:
 
-cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\server
+cd ....\mevn_full_stack_app\server
 
 
 Установите зависимости:
@@ -21,7 +21,7 @@ npm run dev
 
 Перейдите в папку client:
 
-cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\client
+cd .....\mevn_full_stack_app\client
 
 
 Установите зависимости:
