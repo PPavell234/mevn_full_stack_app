@@ -92,8 +92,8 @@ mevn_full_stack_app/
 Клонируйте репозиторий и установите зависимости:
 
 ```bash
-git clone https://github.com/yourusername/mevn_full_stack_app.git
-cd mevn_full_stack_app
+git clone https://github.com/PPavell234/mevn_full_stack_app
+cd .......\mevn_full_stack_app
 ```
 
 ---
