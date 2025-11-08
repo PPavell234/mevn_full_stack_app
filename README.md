@@ -141,16 +141,6 @@ npm run serve
 
 ---
 
-## 🧑‍💻 Contributing
-
-Pull requests приветствуются!  
-Если хотите добавить новую функциональность — создайте **feature request** в разделе [Issues](https://github.com/yourusername/mevn_full_stack_app/issues).
-
----
-
-## ⚖️ License
-
-Этот проект распространяется под лицензией [MIT](https://opensource.org/license/MIT/).
 
 ---
 
