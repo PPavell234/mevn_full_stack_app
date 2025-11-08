@@ -101,7 +101,7 @@ cd mevn_full_stack_app
 
 Перейдите в директорию `server`:
 ```bash
-cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\server
+cd .......\mevn_full_stack_app\server
 ```
 
 Установите зависимости и запустите сервер:
@@ -118,7 +118,7 @@ npm run dev
 
 Перейдите в директорию `client`:
 ```bash
-cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\client
+cd .......\mevn_full_stack_app\client
 ```
 
 Установите зависимости и запустите клиент:
