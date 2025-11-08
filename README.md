@@ -1,38 +1,159 @@
-🖥️ Запуск сервера (Backend)
+<div align="center">
+  <img src="assets/images/logo/mevn.png" alt="MEVN App Logo" width="200" height="auto" />
+  <h1>MEVN Full Stack App</h1>
+  <p>Full-stack web application built with MongoDB, Express, Vue.js, and Node.js 🚀</p>
 
-Перейдите в папку server:
+<!-- Badges -->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/mevn_full_stack_app)
+![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/mevn_full_stack_app)
+![GitHub stars](https://img.shields.io/github/stars/yourusername/mevn_full_stack_app?style=social)
+![GitHub forks](https://img.shields.io/github/forks/yourusername/mevn_full_stack_app?style=social)
 
-cd ....\mevn_full_stack_app\server
+<h4>
+    <a href="https://github.com/yourusername/mevn_full_stack_app/issues/new?template=bug_report.md&title=[BUG]">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/yourusername/mevn_full_stack_app/issues/new?template=feature_request.md&title=[FR]">Request Feature</a>
+</h4>
+</div>
 
+---
 
-Установите зависимости:
+## 🌟 About the Project
 
+**MEVN Full Stack App** — это учебный и демонстрационный проект, основанный на стеке:
+- **MongoDB** — база данных  
+- **Express.js** — серверная логика  
+- **Vue.js** — фронтенд  
+- **Node.js** — серверное окружение  
+
+Проект демонстрирует, как можно связать backend и frontend в одном приложении, используя REST API и современные подходы к разработке на JavaScript.
+
+---
+
+## ⚙️ Project Structure
+
+```
+mevn_full_stack_app/
+│
+├── client/      # Vue.js frontend
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/      # Node.js + Express backend
+│   ├── models/
+│   ├── routes/
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## 🧰 Tech Stack
+
+<details>
+<summary>Server</summary>
+<ul>
+  <li><a href="https://nodejs.org/">Node.js</a></li>
+  <li><a href="https://expressjs.com/">Express.js</a></li>
+  <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+  <li><a href="https://mongoosejs.com/">Mongoose</a></li>
+</ul>
+</details>
+
+<details>
+<summary>Client</summary>
+<ul>
+  <li><a href="https://vuejs.org/">Vue.js</a></li>
+  <li><a href="https://cli.vuejs.org/">Vue CLI</a></li>
+  <li><a href="https://vuetifyjs.com/">Vuetify</a></li>
+  <li><a href="https://axios-http.com/">Axios</a></li>
+</ul>
+</details>
+
+<details>
+<summary>Dev Tools</summary>
+<ul>
+  <li><a href="https://nodemon.io/">Nodemon</a></li>
+  <li><a href="https://eslint.org/">ESLint</a></li>
+  <li><a href="https://prettier.io/">Prettier</a></li>
+</ul>
+</details>
+
+---
+
+## 🧭 Getting Started
+
+### 📦 Installation
+
+Клонируйте репозиторий и установите зависимости:
+
+```bash
+git clone https://github.com/yourusername/mevn_full_stack_app.git
+cd mevn_full_stack_app
+```
+
+---
+
+### 🖥️ Запуск сервера (Backend)
+
+Перейдите в директорию `server`:
+```bash
+cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\server
+```
+
+Установите зависимости и запустите сервер:
+```bash
 npm install
-
-
-Запустите сервер в режиме разработки:
-
 npm run dev
+```
 
+По умолчанию сервер запустится на **http://localhost:5000**
 
-Сервер обычно запускается на порту 5000 (или указанном в .env).
+---
 
-💻 Запуск клиента (Frontend)
+### 💻 Запуск клиента (Frontend)
 
-Перейдите в папку client:
+Перейдите в директорию `client`:
+```bash
+cd C:\Users\User\g1\Java\Project\mevn_full_stack_app\client
+```
 
-cd .....\mevn_full_stack_app\client
-
-
-Установите зависимости:
-
+Установите зависимости и запустите клиент:
+```bash
 npm install
-
-
-Запустите клиентское приложение:
-
 npm run serve
+```
 
+Клиент будет доступен по адресу **http://localhost:8080**
 
-По умолчанию клиент будет доступен по адресу:
-👉 http://localhost:8080
+---
+
+## 🪄 Features
+
+✅ REST API  
+✅ CRUD операции  
+✅ Подключение к MongoDB  
+✅ UI с Vuetify  
+✅ Разделённый frontend и backend  
+
+---
+
+## 🧑‍💻 Contributing
+
+Pull requests приветствуются!  
+Если хотите добавить новую функциональность — создайте **feature request** в разделе [Issues](https://github.com/yourusername/mevn_full_stack_app/issues).
+
+---
+
+## ⚖️ License
+
+Этот проект распространяется под лицензией [MIT](https://opensource.org/license/MIT/).
+
+---
+
+<div align="center">
+  <b>Made with ❤️ using the MEVN stack</b>
+</div>
